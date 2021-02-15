@@ -1,0 +1,40 @@
+.auth{
+  width: 100%;
+  background: rgba(256, 256, 256, 0.2);
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.auth h1{
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.auth > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+}
+.auth > div > div{
+}
+.auth input{
+  font-size: 16px;
+  width: 90%;
+  background: none;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 12px;
+}
+.auth input::placeholder{
+  color: white;
+  text-transform: capitalize;
+}
+
+.auth .btn{
+  margin-top: 50px;
+}

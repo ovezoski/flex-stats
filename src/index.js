@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import store from './store'
+import firebase from './firebase'
 import {Provider} from 'react-redux'
 
 ReactDOM.render(

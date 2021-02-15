@@ -13,6 +13,9 @@ export const ProgramSlice = createSlice({
   reducers:{
     setActiveWorkout: (state, action) => {
       state.activeWorkout = action.payload
+    },
+    setWorkouts: (state, action) => {
+      state.workouts = action.payload
     }
   }
 })
@@ -20,9 +23,10 @@ export const selectWorkouts = state => state.program.workouts
 export const selectActiveWorkout = (state) =>{
   if(state.program.activeWorkout == -1)
     return {id:-1}
-  else
-    return state.program.workouts[state.program.activeWorkout]
+  else{
+    return state.program.workouts.find((workout) => (workout.id == state.program.activeWorkout) )
+  }
 }
 export default  ProgramSlice.reducer
 
-export const {setActiveWorkout} = ProgramSlice.actions
+export const {setActiveWorkout, setWorkouts} = ProgramSlice.actions

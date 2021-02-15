@@ -10,22 +10,29 @@ import {
 
 import Home from './features/home'
 import Program from './features/program/program'
-import Workout from './features/workout/index'
+import Workout from './features/workout/workout'
+import Workouts from './features/workout/workouts'
+import Stats from './features/workout/stats'
 import Timer from './features/components/timer'
+import SignIn from './features/auth/signIn'
+import SignUp from './features/auth/signUp'
+import Admin from './features/admin/index'
 
 import {selectActiveWorkout} from './features/program/programSlice'
+import {selectUser} from './features/auth/authSlice'
 
 function App() {
 
-  var activeWorkout = useSelector(selectActiveWorkout)
+  let activeWorkout = useSelector(selectActiveWorkout)
+  let user = useSelector(selectUser)
 
   return (
     <Router>
     <div className="App">
 
       <div className="logo"> Flex Stats </div>
+      <div> {user.email} </div>
 
-      <div style={{width: "100%", margin: "20px auto"} }> <Timer/> </div>
 
       <Switch>
 
@@ -33,12 +40,33 @@ function App() {
           <Home/>
         </Route>
 
-        <Route path="/workouts">
+        <Route path="/program">
           <Program />
         </Route>
 
         <Route path="/workout">
           <Workout />
+        </Route>
+
+        <Route path="/workouts">
+          <Workouts />
+        </Route>
+
+
+        <Route path="/stats">
+          <Stats />
+        </Route>
+
+        <Route path="/sign-in">
+          <SignIn />
+        </Route>
+
+        <Route path="/sign-up">
+          <SignUp />
+        </Route>
+
+        <Route path="/admin">
+          <Admin />
         </Route>
 
       </Switch>
@@ -47,8 +75,11 @@ function App() {
     <div className="navigation" >
       <Link to="/"> Home </Link>
       <Link to="/workouts"> Workouts </Link>
+      <Link to="/admin"> Admin  </Link>
+
       { activeWorkout.id !=-1 &&
         <Link to={"/workout/" + activeWorkout.id} > {activeWorkout.title} </Link>}
+
     </div>
 
     </Router>

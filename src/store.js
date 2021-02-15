@@ -1,12 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit'
-import exerciseReducer from './features/exerciseSlice'
+import thunkMiddleware from 'redux-thunk'
+
+// import exerciseReducer from './features/exerciseSlice'
 import workoutReducer from './features/workout/workoutSlice'
 import programReducer from './features/program/programSlice'
+import {authReducer} from './features/auth/authSlice'
 
 export default configureStore({
   reducer: {
-    exercise: exerciseReducer,
+    // exercise: exerciseReducer,
     workout: workoutReducer,
-    program: programReducer
+    program: programReducer,
+    auth: authReducer
   }
 })

@@ -21,7 +21,9 @@ export const workoutSlice = createSlice({
         return exercise
       })
     },
-
+    setActiveExercise: (state, action) =>{
+      state.activeExercise = action.payload
+    },
     updateRepsState: (state, action) => {
       state.exercises = state.exercises.map((exercise) => {
         if(exercise.id == action.payload.id) exercise.reps+= action.payload.value
@@ -39,8 +41,9 @@ export const workoutSlice = createSlice({
 })
 
 
-export const {updateRepsState, nextExercise, updateWeightState } = workoutSlice.actions;
+export const {updateRepsState, nextExercise, updateWeightState, setActiveExercise } = workoutSlice.actions;
 
 export const selectExercises = (state) => state.workout.exercises
+export const selectActiveExercise = (state) => state.workout.activeExercise
 
 export default workoutSlice.reducer

@@ -1,5 +1,6 @@
-import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import {useSelector, useDispatch} from 'react-redux'
+import Counter from '../components/counter'
+
 import {
   selectExercises,
   nextExercise,
@@ -14,18 +15,7 @@ export default function Exercise(props){
   const updateReps = value => dispatch(updateRepsState({id: props.id, value}) )
   const updateWeight = value => dispatch(updateWeightState({id: props.id, value}) )
 
-  function Counter(props){
-    return(
-      <div className="counter">
-        <div className="hidden"> {props.title} </div>
-        <div className="controls">
-        <FaMinusCircle className="hidden" onClick={() => props.decrement() }/>
-          {props.counter}
-        <FaPlusCircle className="hidden" onClick={() => props.increment()} />
-        </div>
-      </div>
-    )
-  }
+
 
   return(
     <div className={props.active?"exercise active":"exercise"} >
